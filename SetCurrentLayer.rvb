@@ -1,0 +1,15 @@
+﻿Option Explicit
+'Script written by <Junichiro Horikawa>
+'Script copyrighted by <Junichiro Horikawa>
+'Script version Tuesday, 14 June 2011 10:21:30
+
+Call Main()
+Sub Main()
+	Dim strObject,strLayer
+	strObject = Rhino.GetObject("Pick object to jump to its layer",,True)
+	
+	If Not IsNull(strObject) Then
+		strLayer = Rhino.ObjectLayer(strObject)
+		Rhino.CurrentLayer strLayer
+	End If
+End Sub
